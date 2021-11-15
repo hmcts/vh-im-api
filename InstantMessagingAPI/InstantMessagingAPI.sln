@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI", "InstantMessagingAPI\InstantMessagingAPI.csproj", "{9323F33C-7C84-4E45-984E-C2297DB68480}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{862CE9AE-CAD3-4219-A614-6AEA41ED062F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C71AAD89-E513-4C45-B5E9-1CBBDD064102}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.Client", "InstantMessagingAPI.Client\InstantMessagingAPI.Client.csproj", "{39C5CC2C-EBEE-4602-9A13-8032B9D941A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.AcceptanceTests", "InstantMessagingAPI.AcceptanceTests\InstantMessagingAPI.AcceptanceTests.csproj", "{692065B1-1179-442F-9AF1-60FBDCCCA4A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.IntegrationTests", "InstantMessagingAPI.IntegrationTests\InstantMessagingAPI.IntegrationTests.csproj", "{ED0D34FF-381B-4150-AB99-810A669DBB32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.UnitTests", "InstantMessagingAPI.UnitTests\InstantMessagingAPI.UnitTests.csproj", "{8FE8C94E-A0C9-4962-89AC-25B85D18BF5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.Common", "InstantMessagingAPI.Common\InstantMessagingAPI.Common.csproj", "{A6913EEF-95DE-46C0-A314-59A3A4620F46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.Contract", "InstantMessagingAPI.Contract\InstantMessagingAPI.Contract.csproj", "{1B21F8AE-AB86-4EE9-AD37-8766D63773C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.DAL", "InstantMessagingAPI.DAL\InstantMessagingAPI.DAL.csproj", "{475980C2-0ABE-4611-99A6-A529444B3048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantMessagingAPI.Domain", "InstantMessagingAPI.Domain\InstantMessagingAPI.Domain.csproj", "{463B27DD-4C81-4937-B314-F51A8C760245}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9323F33C-7C84-4E45-984E-C2297DB68480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9323F33C-7C84-4E45-984E-C2297DB68480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9323F33C-7C84-4E45-984E-C2297DB68480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9323F33C-7C84-4E45-984E-C2297DB68480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C5CC2C-EBEE-4602-9A13-8032B9D941A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C5CC2C-EBEE-4602-9A13-8032B9D941A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C5CC2C-EBEE-4602-9A13-8032B9D941A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C5CC2C-EBEE-4602-9A13-8032B9D941A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{692065B1-1179-442F-9AF1-60FBDCCCA4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{692065B1-1179-442F-9AF1-60FBDCCCA4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{692065B1-1179-442F-9AF1-60FBDCCCA4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{692065B1-1179-442F-9AF1-60FBDCCCA4A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0D34FF-381B-4150-AB99-810A669DBB32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0D34FF-381B-4150-AB99-810A669DBB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0D34FF-381B-4150-AB99-810A669DBB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0D34FF-381B-4150-AB99-810A669DBB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE8C94E-A0C9-4962-89AC-25B85D18BF5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE8C94E-A0C9-4962-89AC-25B85D18BF5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE8C94E-A0C9-4962-89AC-25B85D18BF5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE8C94E-A0C9-4962-89AC-25B85D18BF5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6913EEF-95DE-46C0-A314-59A3A4620F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6913EEF-95DE-46C0-A314-59A3A4620F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6913EEF-95DE-46C0-A314-59A3A4620F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6913EEF-95DE-46C0-A314-59A3A4620F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B21F8AE-AB86-4EE9-AD37-8766D63773C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B21F8AE-AB86-4EE9-AD37-8766D63773C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B21F8AE-AB86-4EE9-AD37-8766D63773C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B21F8AE-AB86-4EE9-AD37-8766D63773C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475980C2-0ABE-4611-99A6-A529444B3048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475980C2-0ABE-4611-99A6-A529444B3048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475980C2-0ABE-4611-99A6-A529444B3048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475980C2-0ABE-4611-99A6-A529444B3048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463B27DD-4C81-4937-B314-F51A8C760245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463B27DD-4C81-4937-B314-F51A8C760245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463B27DD-4C81-4937-B314-F51A8C760245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463B27DD-4C81-4937-B314-F51A8C760245}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39C5CC2C-EBEE-4602-9A13-8032B9D941A7} = {862CE9AE-CAD3-4219-A614-6AEA41ED062F}
+		{692065B1-1179-442F-9AF1-60FBDCCCA4A4} = {C71AAD89-E513-4C45-B5E9-1CBBDD064102}
+		{ED0D34FF-381B-4150-AB99-810A669DBB32} = {C71AAD89-E513-4C45-B5E9-1CBBDD064102}
+		{8FE8C94E-A0C9-4962-89AC-25B85D18BF5C} = {C71AAD89-E513-4C45-B5E9-1CBBDD064102}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7397C5C2-4D18-4558-B8AB-C9BABF612C74}
+	EndGlobalSection
+EndGlobal

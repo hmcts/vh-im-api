@@ -1,0 +1,167 @@
+parameters:
+- name: deploymentBranch
+  displayName: Branch to Deploy
+  type: string
+  default: refs/heads/master
+
+- name: environment
+  displayName: Environment
+  type: string
+  default: Sandbox
+  values:
+  - Preview
+  - Dev
+  - AAT
+  - Sandbox
+  - Test1
+  - Test2
+  - Test3
+  - Demo
+  - Preprod
+  - Prod
+
+- name: RunZap
+  displayName: Execute ZAP Tests
+  type: boolean
+  default: false
+
+- name: RunACTests
+  displayName: Execute AC Tests
+  type: boolean
+  default: true
+
+- name: prodEnvs
+  displayName: Environments Using Prod Subscription
+  type: object
+  default:
+    - Prod
+    - Preprod
+
+# Set variables once
+variables:
+  - group: vh-domains-and-urls
+  - group: vh-apps-settings-generic
+  - group: vh-im-api
+  - ${{ if ne(variables['Build.Reason'], 'ResourceTrigger') }}:
+    - ${{ if containsValue(parameters.prodEnvs, parameters.environment) }}:
+      - group: vh-prod
+    - ${{ if not(containsValue(parameters.prodEnvs, parameters.environment)) }}:
+      - group: vh-preview
+  - ${{ if eq(variables['Build.Reason'], 'ResourceTrigger') }}:
+    - ${{ if or(startswith(variables['Build.SourceBranch'], 'refs/heads/release/'), startswith(variables['Build.SourceBranch'], 'refs/heads/hotfix/')) }}:
+      - group: vh-prod
+    - ${{ if not(or(startswith(variables['Build.SourceBranch'], 'refs/heads/release/'), startswith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'))) }}:
+      - group: vh-preview
+
+trigger: none
+pr: none
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: hmcts/azure-devops-templates
+      ref: refs/heads/master
+      endpoint: hmcts
+  pipelines:
+  - pipeline: CI
+    source: hmcts.vh-im-api
+    trigger:
+      enabled: true
+      branches:
+      - master
+      - hotfix/*
+      - release/*
+
+extends:
+    template: templates/vh-release.yml@templates
+    parameters:
+      ${{ if ne(variables['Build.Reason'], 'ResourceTrigger') }}:
+        environments:
+          - ${{ parameters.environment }}
+        deploymentBranch: ${{ parameters.deploymentBranch }}
+      ${{ if eq(variables['Build.Reason'], 'ResourceTrigger') }}:
+        deploymentBranch: resources.pipeline.CI.sourceBranch
+      releaseParameters:
+        runACTests: ${{ parameters.RunACTests }}
+        runZapTests: ${{ parameters.RunZap }}
+        subscription: $(env_Subscription)
+        secrets_KeyVault: $(env_Secret_KeyVault)
+        secrets_Subscription: $(env_Secret_Subscription)
+        devOpsResource: vh_im_api
+        appName: vh-im-api-$(environment)
+        resourceGroup: vh-im-api-$(environment)
+        variables:
+          - group: govuk-notify-preview
+            env:
+             - Preview
+          - group: govuk-notify-dev
+            env:
+             - Dev
+          - group: govuk-notify-aat
+            env:
+             - AAT
+          - group: govuk-notify-sandbox
+            env:
+             - Sandbox
+          - group: govuk-notify-test1
+            env:
+             - Test1
+             - Test2
+          - group: govuk-notify-demo
+            env:
+             - Demo
+          - group: govuk-notify-preprod
+            env:
+             - PreProd
+          - group: govuk-notify-prod
+            env:
+             - Prod
+        appSettings:
+          - name: ApplicationInsights:InstrumentationKey
+            value: vh-core-infra-AppInsightsKey
+            secret: true
+          - name: Services:VhInstantMessagingApiResourceId
+            value: vh-im-api-identifieruris
+            secret: true
+          # AzureAd
+          - name: AzureAd:ClientId
+            value: vh-im-api-appid
+            secret: true
+          - name: AzureAd:ClientSecret
+            value: vh-im-api-key
+            secret: true
+          - name: AzureAd:TenantId
+            value: tenantid
+            secret: true
+          - name: AzureAd:VhInstantMessagingApiResourceId
+            value: vh-im-api-identifieruris
+            secret: true
+
+          # Connection strings
+          - name: ConnectionStrings:VhInstantMessagingsApi
+            value: vhInstantMessagingDatabaseConnectionString
+            secret: true
+            
+        acceptanceTestSettings:
+          # AzureAd
+          - name: ApplicationInsights:InstrumentationKey
+            value: vh-core-infra-AppInsightsKey
+            secret: true
+          - name: AzureAd:TenantId
+            value: tenantid
+            secret: true
+          - name: AzureAd:ClientId
+            value: vh-im-api-appid
+            secret: true
+          - name: AzureAd:ClientSecret
+            value: vh-im-api-key
+            secret: true
+          
+          # Services          
+          - name: Services:VhInstantMessagingApiResourceId
+            value: vh-im-api-identifieruris
+            secret: true
+          - name: Services:InstantMessagingApiUrl
+            value: $(im_api_url_staging)
+            
