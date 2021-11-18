@@ -21,6 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Scrutor" Version="3.3.0" />
+    <PackageReference Include="VH.Core.Configuration" Version="0.1.13" />
     <PackageReference Include="ZymLabs.NSwag.FluentValidation" Version="0.5.1" />
   </ItemGroup>
 

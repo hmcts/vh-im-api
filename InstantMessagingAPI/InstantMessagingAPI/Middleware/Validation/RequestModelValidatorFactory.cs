@@ -15,7 +15,7 @@ namespace InstantMessagingAPI.Middleware.Validation
         public override IValidator CreateInstance(Type validatorType)
         {
             var validator = (IValidator)_serviceProvider.GetService(validatorType);
-            var isApiRequestContract = validatorType.FullName?.Contains("NotificationApi.Contract.Requests");
+            var isApiRequestContract = validatorType.FullName?.Contains("InstantMessagingAPI.Contract.Requests");
             if (validator == null && isApiRequestContract.HasValue && isApiRequestContract.Value)
             {
                 throw new InvalidOperationException($"No validator found for {validatorType}");
